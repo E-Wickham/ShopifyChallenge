@@ -1,0 +1,40 @@
+body {
+    background-color: midnightblue;
+    font-family: Orbitron;
+    color: white;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+
+p {
+    font-family: Roboto;
+}
+
+#site-container {
+    width: 80%;
+    padding: 20px;
+
+}
+
+#img-title {
+    text-align: center;
+}
+
+#image-container > img{
+    border-radius: 5px;
+}
+
+#image-container{
+    display: block;
+    width: 70%;
+
+    margin: auto;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 10px;
+    
+}
+
