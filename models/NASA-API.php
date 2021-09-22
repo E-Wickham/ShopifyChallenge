@@ -1,13 +1,13 @@
 <?php
 
-class Buzz {
+class PicOfDay {
 
     private $url = "https://api.nasa.gov/planetary/apod?api_key=HFJFzfQnZA45cINot957sMxng6WZYni2C4x0WZYI";
     #private $auth = array('Authorization: Token token=YOUR PODCAST AUTHORIZATION TOKEN'); 
     
     //Properties and Methods go here
 
-    public function getEp() {
+    public function getPic() {
         $url = $this->url;
 
         //return $url;
@@ -23,9 +23,9 @@ class Buzz {
 
 
         curl_close($curl);
-        $episodes = json_decode($resp);
+        $picture = json_decode($resp);
 
-        return $episodes;
+        return $picture;
 
         
     }

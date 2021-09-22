@@ -1,13 +1,13 @@
 <?php 
+session_start();
 
 require_once 'models/NASA-API.php';
 
     //call the function
-    $api = New Buzz();
-    $episodes = $api->getEp();
-    //$result[ "node" ]->created;
+    $api = New PicOfDay();
+    $episodes = $api->getPic();
  
-
+    //Display Data
     $date = $episodes->date;
     $dateTime = new DateTime($date);
     
@@ -16,9 +16,11 @@ require_once 'models/NASA-API.php';
     $imgHD = $episodes->hdurl;
     $info = $episodes->explanation;
     $title = $episodes->title;
-    //echo($formatDate);
-    //print_r($episodes)
-    //var_dump($imgHD);
+
+
+    $_SESSION["likeStatus"] = False;
+
+
     ?>
     
 
@@ -33,6 +35,8 @@ require_once 'models/NASA-API.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Roboto&display=swap"" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b55d11ffa3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/folder.js"></script>
 
 </head>
 <body>
@@ -42,18 +46,28 @@ require_once 'models/NASA-API.php';
         <div id="image-container">
             <?php 
             echo "<img id='space-pic' src=$img alt='APOD IMAGE OF THE DAY'>"; ?>
-            <div>
-                <button>Like <i class="far fa-heart"></i></button>
-                <a href=<?php echo $imgHD ?>><button>See image in HD</button></a>
+            <div id="button-block">
                 
-                <!--
-                    != like -> star outline
-                    = like -> filled star
-                -->
+                <a href=<?php echo $imgHD ?>><button id="hdLink">See image in HD</button></a>
+                <form id="likeForm" method="POST" action="">
+                    <input type="submit" id="likeBtn" name="likeBtn" value="Like"/>
+                </form>
+            <?php
+                //Submit Form Result
+                if(isset($_POST['likeBtn'])){
+                        $msg = "Image liked! &#10084;"	;
+                        $_SESSION["likeStatus"] = True;
+                        echo $msg;
+                    }                  
+
+            ?>
+                
             </div>
-            
-            <h2>About this image: </h2>
-            <p><?php echo $info ?></p>
+            <div class="pic-info">
+                <h2>About this image: </h2>
+                <p><?php echo $info ?></p>
+            </div>
+
         </div>
     </div>
 

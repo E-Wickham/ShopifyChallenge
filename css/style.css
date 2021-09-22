@@ -15,6 +15,9 @@ p {
 }
 
 #site-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 80%;
     padding: 20px;
 
@@ -26,6 +29,10 @@ p {
 
 #image-container > img{
     border-radius: 5px;
+    max-width: 90%;
+    display: block;
+    margin: auto;
+    padding-top: 5%;
 }
 
 #image-container{
@@ -38,3 +45,35 @@ p {
     
 }
 
+#button-block{
+    max-width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#likeBtn, #hdLink {
+    color: black;
+    padding: 10px;
+    font-weight: 600;
+    font-family: Roboto;
+    text-transform: uppercase;
+    display: inline;
+}
+
+.pic-info{
+    display: block;
+    max-width:90%;
+    margin: 5%;
+}
+
+#like-heart {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: inline;
+}
+
+#likeForm {
+    display: inline;
+
+}
